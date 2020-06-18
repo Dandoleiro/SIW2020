@@ -1,0 +1,57 @@
+
+----progettoGiugno20------
+
+
+----Casi D'Uso User:
+
+
+-Sign up: utente inserisce nome, cognome, username e password e viene dalvato nel DB con ruolo di DEFAULT
+
+-Autenticazione: cerca l'utente nel DB e confrone username e password con quelle inserite nella form dall'utente e verifica che il ruolo è DEFAULT
+
+-Visualizzare Profilo: cerca l'utente autenticato nel DB mostrando User (username e password) e Credentials (firstName, lastName,creatioDate,Role)
+
+-Aggiornare profilo: aggiorna il profilo dell'utente autenticato nel DB facendo un update dei vari campi (firstName, lastName, username e password)
+
+-Creare un nuovo progetto: l'utente immette i dati del progetto(name e Description) in una form e vengono salvati nel DB
+
+-Visualizzare i miei progetti:  vengono cercati nel DB tutti i progetti di cui l'utente loggato è propietario mostrandone il nome e gli utenti con il quale è condiviso
+
+-Visualizzare singolo progetto:viene cercato nel DB il progetto di cui l'utente loggato è propietario mostrandone il nome, i relativi tasks , tags  e gli utenti con il quale è condiviso
+
+-Visualizzare progetti condivisi: vengono cercati i progetti visibili  all'utente loggato mostrandone il nome
+
+-Visualizzare progetto condiviso: viene cercato il progetto visibile  all'utente loggato mostrandone il nome, tasks e tags e gli utenti con cui è condiviso
+
+-Aggiornare i dati di un mio progetto: viene verificato che il progetto appartenga all'utente loggato e vengono immessi i nuovi dati  tramite una form e viene aggiornato
+
+-Cancellare un mio progetto:viene verificato che il progetto appartenga all'utente loggato e viene rimosso dal DB
+
+-Condividere un mio progetto: viene verificato che il progetto appartenga all'utente loggato e tramite una lista di utenti l'owner del progetto può scegliere con chi condividerlo aggiungedolo così  alla lista dei membri del progetto e successivamente salvato nel DB
+
+-Aggiugere un tag ad un progetto (estensione): viene verificato che il progetto appartenga all'utente loggato e vengono inseriti i dati del tag (nome colore e descrizione) da una form e viene inserito  nella lista di tags del progetto e salvato nel DB
+
+
+-------Casi D'uso Task
+
+-Aggiungere un nuovo task al progetto: viene verificato che il progetto appartenga all'utente loggato, l'utente immette in una form i dati del task (nome e descrizione) inserendolo così nella lista di tasks del progetto e successivamente salvato nel DB
+
+-Aggiornare un Task di un mio progetto:viene verificato che il progetto appartenga all'utente loggato, l'utente immette in una form i nuovi dati del task (nome e descrizione) e viene effettuato l'update dei vecchi dati 
+
+-Cancellare un Task di un mio progetto:viene verificato che il progetto appartenga all'utente loggato e il task viene rimosso dal DB
+
+-Assegnare un Task di un mio progetto a un Utente che ha visibilità sul mio progetto:viene verificato che il progetto appartenga all'utente loggato.L'utente loggato sceglie tramite una lista l'utente a cui vole assegnare il task. Il task viene salvato nella lista di tasks dell'utente selezionato e successivamente viene salvato nel DB
+
+-Aggiungere un Tag ad un Task di un mio progetto(estensione): viene verificato che il progetto appartenga all'utente loggato.L'utente inserisce i dati del tag (nome, colore e descrizione) tramite una form e nel task viene inserito nella lista di Tags e successivamente salvato nel DB
+
+-Aggiungere un commento ad un task di un progetto di cui ho visibilià: viene verificato che l'utente loggato abbia visibilità sul progetto. Selezionato il Task,l'utente loggato inserisce il testo del commento tramite una form. Il commento viene aggiunto alla lista dei commenti in Task e successivamente salvato nel DB
+
+
+
+------Casi D'uso Admin
+
+-Autenticazione:cerca l'utente nel DB e confrone username e password con quelle inserite nella form dall'utente e verifica che il ruolo è ADMIN
+
+-Cancellazione un utente registrato: viene mostrata una lista di utenti registrati e l'utente admin seleziona un utente da eliminare dalla lista e successivamente viene eliminato dal DB
+
+
