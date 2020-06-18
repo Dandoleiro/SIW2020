@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>ProgettoGiugno20</title>
+</head>
+<body>
+	<h1 th:text="${project.name}"></h1>
+
+	<div th:if="${members.size() > 0}">
+		<h3>Shared with:</h3>
+		<ul>
+			<li th:each="member : ${members}">
+				<div th:text="${member.firstName} + ' ' + ${member.lastName}"></div>
+			</li>
+		</ul>
+	</div>
+	<div th:if="${project.tasks.size() > 0}">
+	<h3>Tasks</h3>
+	<ul>
+		<li th:each="task : ${project.tasks}">
+			<div> <a th:text="${task.name}" th:href="'/projects/' +${project.id}+'/task/' +${task.id}">...</a></div>
+		</li>
+	</ul>
+	</div>
+	<div th:if="${assignedTasks.size() > 0}">
+		<h3>My Assigned Tasks</h3>
+		<ul>
+			<li th:each="task : ${assignedTasks}">
+				<div> <a th:text="${task.name}" th:href ="'/projects/' +${project.id}+'/task/' +${task.id}">...</a></div>
+			</li>
+		</ul>
+	</div>
+	<div th:if="${project.tags.size() > 0}">
+	<h3>Tag</h3>
+	<ul>
+		<li th:each="tag : ${project.tags}">
+			<div> <a th:text="${tag.name}" th:href="'/projects/' +${project.id}+'/tag/' +${tag.id}">...</a></div>
+		</li>
+	</ul>
+	</div>
+	
+
+	<div th:if="${project.getOwner().equals(loggedUser)}">
+		<form method="POST"
+			th:action="@{/projects/{projectId}/users(projectId=${project.id})}">
+			<button type="submit" name="submit" value="value">Share</button>
+		</form>
+		<form method="POST"
+			th:action="@{/projects/{projectId}/task/add/form(projectId=${project.id})}">
+			<button type="submit" name="submit" value="value">Add Task</button>
+		</form>
+		<form method="POST"
+			th:action="@{/projects/{projectId}/tag/add/form(projectId=${project.id})}">
+			<button type="submit" name="submit" value="value">Add Tag</button>
+		</form>
+		<form method="POST"
+			th:action="@{/projects/{projectId}/edit/form(projectId=${project.id})}">
+			<button type="submit" name="submit" value="value">Edit</button>
+		</form>
+	</div>
+	<h4>
+		<a href="/home">Home</a>
+	</h4>
+</body>
+</html>
